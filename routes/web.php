@@ -45,3 +45,22 @@ Route::get('add-to-cart/{id}',[
 	'uses' => 'PageController@getAddtoCart'
 ]);
 
+Route::get('del-cart/{id}',[
+	'as' => 'xoagiohang',
+	'uses' => 'PageController@getDelItemCart'
+]);
+
+Route::get('dat-hang',[
+	'as' => 'dathang',
+	'uses' => 'PageController@getCheckout'
+]);
+
+/*Route::get('dat-hang2',[
+	'as' => 'dathangs',
+	'uses' => 'PageController@postCheckout'
+]);*/
+
+
+
+
+
