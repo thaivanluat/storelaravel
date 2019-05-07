@@ -55,10 +55,10 @@ Route::get('dat-hang',[
 	'uses' => 'PageController@getCheckout'
 ]);
 
-/*Route::get('dat-hang2',[
-	'as' => 'dathangs',
+Route::post('dat-hang',[
+	'as' => 'dathang',
 	'uses' => 'PageController@postCheckout'
-]);*/
+]);
 
 
 
