@@ -119,5 +119,5 @@
 
 			</div> <!-- .main-content -->
 		</div> <!-- #content -->
-	
+	</div>
 @endsection

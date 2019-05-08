@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index',[
+Route::get('',[
 	'as' => 'trang-chu',
 	'uses' => 'PageController@getIndex'
 ]);
@@ -58,6 +58,35 @@ Route::get('dat-hang',[
 Route::post('dat-hang',[
 	'as' => 'dathang',
 	'uses' => 'PageController@postCheckout'
+]);
+Route::get('dang-nhap',[
+	'as' => 'login',
+	'uses' => 'PageController@getLogin'
+]);
+
+Route::post('dang-nhap',[
+	'as' => 'login',
+	'uses' => 'PageController@postLogin'
+]);
+
+Route::get('dang-xuat',[
+	'as' => 'logout',
+	'uses' => 'PageController@getLogout'
+]);
+
+Route::get('dang-ky',[
+	'as' => 'register',
+	'uses' => 'PageController@getRegister'
+]);
+
+Route::post('dang-ky',[
+	'as' => 'register',
+	'uses' => 'PageController@postRegister'
+]);
+
+Route::get('search',[
+	'as' => 'search',
+	'uses' => 'PageController@getSearch'
 ]);
 
 
