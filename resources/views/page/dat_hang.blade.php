@@ -7,19 +7,19 @@
 			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb">
-					<a href="index.html">Trang chủ</a> / <span>Đặt hàng</span>
+					<a href="{{route('trang-chu')}}">Trang chủ</a> / <span>Đặt hàng</span>
 				</div>
 			</div>
 			<div class="clearfix"></div>
+			<div class="alert alert-success">@if(Session::has('thongbao')){{Session::get('thongbao')}}@endif</div>
 		</div>
 	</div>
-	
+	@if(Session('cart'))
 	<div class="container">
 		<div id="content">
 			
 			<form action="{{route('dathang')}}" method="post" class="beta-form-checkout">
-				<input type="hidden" name="_token" value="{{csrf_token()}}" >
-				<div class="row">@if(Session::has('thongbao')){{Session::get('thongbao')}}@endif</div>
+				<input type="hidden" name="_token" value="{{csrf_token()}}" >				
 				<div class="row">
 					<div class="col-sm-6">
 						<h4>Đặt hàng</h4>
@@ -27,7 +27,11 @@
 
 						<div class="form-block">
 							<label for="name">Họ tên*</label>
+							@if(Auth::check())	
+							<input type="text" name="name" id="name" value="{{Auth::user()->full_name}}" required>
+							@else
 							<input type="text" name="name" id="name" placeholder="Họ tên" required>
+							@endif
 						</div>
 						<div class="form-block">
 							<label>Giới tính </label>
@@ -38,18 +42,30 @@
 
 						<div class="form-block">
 							<label for="email">Email*</label>
+							@if(Auth::check())
+							<input type="email" id="email" name="email" required value="{{Auth::user()->email}}">
+							@else
 							<input type="email" id="email" name="email" required placeholder="expample@gmail.com">
+							@endif
 						</div>
 
 						<div class="form-block">
 							<label for="address">Địa chỉ*</label>
+							@if(Auth::check())
+							<input type="text" id="address" name="address" value="{{Auth::user()->address}}" required>
+							@else
 							<input type="text" id="address" name="address" placeholder="Street Address" required>
+							@endif
 						</div>
 						
 		
 						<div class="form-block">
 							<label for="phone">Điện thoại*</label>
+							@if(Auth::check())
+							<input type="text" name="phone" id="phone" value="{{Auth::user()->phone}}" required>
+							@else
 							<input type="text" name="phone" id="phone" required>
+							@endif
 						</div>
 						
 						<div class="form-block">
@@ -127,5 +143,14 @@
 			</form>
 		</div> <!-- #content -->
 	</div> <!-- .container -->
+	@else
+	<div class="container">
+		<div class="text-center" style="margin: 20px">
+		<img align="center" src="source/image/mascot.png" alt="">
+		<p style="margin-bottom: 10px">Không có sản phẩm nào trong giỏ hàng của bạn.</p>
+		<div class="text-center"><a href="{{route('trang-chu')}}"><button class="btn btn-primary">Tiếp tục mua sắm</button></a></div>
+		</div>
+	</div>
+	@endif
 @endsection
 	

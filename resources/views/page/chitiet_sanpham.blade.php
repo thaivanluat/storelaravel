@@ -49,35 +49,22 @@
 							</div>
 							<div class="space20">&nbsp;</div>
 
-							<p>Options:</p>
+							<!-- <p>Options:</p> -->
+							<form action="{{route('dathang')}}" method="post" class="beta-form-checkout">
 							<div class="single-item-options">
-								<select class="wc-select" name="size">
-									<option>Size</option>
-									<option value="XS">XS</option>
-									<option value="S">S</option>
-									<option value="M">M</option>
-									<option value="L">L</option>
-									<option value="XL">XL</option>
-								</select>
-								<select class="wc-select" name="color">
-									<option>Color</option>
-									<option value="Red">Red</option>
-									<option value="Green">Green</option>
-									<option value="Yellow">Yellow</option>
-									<option value="Black">Black</option>
-									<option value="White">White</option>
-								</select>
-								<select class="wc-select" name="color">
+								<!-- <select class="wc-select" name="qty">
+								
 									<option>Qty</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
 									<option value="4">4</option>
 									<option value="5">5</option>
-								</select>
-								<a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+								</select> -->
+								<a class="add-to-cart" href="{{route('themgiohang',$sanpham->id)}}"><i class="fa fa-shopping-cart"></i></a>
 								<div class="clearfix"></div>
 							</div>
+							</form>
 						</div>
 					</div>
 
@@ -126,7 +113,7 @@
 										</p>
 									</div>
 									<div class="single-item-caption">
-										<a class="add-to-cart pull-left" href="product.html"><i class="fa fa-shopping-cart"></i></a>
+										<a class="add-to-cart pull-left" href="{{route('themgiohang',$sptt->id)}}"><i class="fa fa-shopping-cart"></i></a>
 										<a class="beta-btn primary" href="{{route('chitietsanpham',$sptt->id)}}">Details <i class="fa fa-chevron-right"></i></a>
 										<div class="clearfix"></div>
 									</div>
@@ -137,7 +124,7 @@
 						<div class="row">{{$sp_tuongtu->links()}}</div>
 					</div> <!-- .beta-products-list -->
 				</div>
-				<div class="col-sm-3 aside">
+				<!-- <div class="col-sm-3 aside">
 					<div class="widget">
 						<h3 class="widget-title">Best Sellers</h3>
 						<div class="widget-body">
@@ -172,7 +159,7 @@
 								</div>
 							</div>
 						</div>
-					</div> <!-- best sellers widget -->
+					</div> best sellers widget
 					<div class="widget">
 						<h3 class="widget-title">New Products</h3>
 						<div class="widget-body">
@@ -207,8 +194,8 @@
 								</div>
 							</div>
 						</div>
-					</div> <!-- best sellers widget -->
-				</div>
+					</div> best sellers widget
+				</div> -->
 			</div>
 		</div> <!-- #content -->
 	</div> <!-- .container -->
